@@ -15,4 +15,19 @@ class MtBT implements IBinTree {
     public int height() {
         return 0;
     }
+
+    @Override
+    public int getData() {
+        return 0;
+    }
+
+    @Override
+    public IBinTree getLeft() {
+        return null;
+    }
+
+    @Override
+    public IBinTree getRight() {
+        return null;
+    }
 }

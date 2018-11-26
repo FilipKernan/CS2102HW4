@@ -87,4 +87,19 @@ class DataHeap extends DataBT implements IHeap {
     public boolean isBigger(int e) {
         return (this.data >= e);
     }
+
+    @Override
+    public int getData() {
+        return super.getData();
+    }
+
+    @Override
+    public IHeap getLeft() {
+        return left;
+    }
+
+    @Override
+    public IHeap getRight() {
+        return right;
+    }
 }

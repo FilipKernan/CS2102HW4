@@ -30,4 +30,19 @@ class DataBT implements IBinTree {
     public int height() {
         return 1 + Math.max(this.left.height(), this.right.height());
     }
+
+    @Override
+    public IBinTree getLeft() {
+        return left;
+    }
+
+    @Override
+    public IBinTree getRight() {
+        return right;
+    }
+
+    @Override
+    public int getData() {
+        return data;
+    }
 }

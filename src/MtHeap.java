@@ -24,4 +24,19 @@ class MtHeap extends MtBT implements IHeap {
     public IHeap merge(IHeap withHeap) {
         return withHeap;
     }
+
+    @Override
+    public IBinTree getRight() {
+        return super.getRight();
+    }
+
+    @Override
+    public int getData() {
+        return super.getData();
+    }
+
+    @Override
+    public IBinTree getLeft() {
+        return super.getLeft();
+    }
 }

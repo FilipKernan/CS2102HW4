@@ -12,4 +12,5 @@ interface IHeap extends IBinTree {
 
     // Determine if the root of this heap is bigger than the given element
     boolean isBigger(int e);
+
 }

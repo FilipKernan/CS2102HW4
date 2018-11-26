@@ -7,4 +7,7 @@ interface IBinTree {
     int size();
     // returns depth of longest branch in the tree
     int height();
+    int getData();
+    IBinTree getLeft();
+    IBinTree getRight();
 }

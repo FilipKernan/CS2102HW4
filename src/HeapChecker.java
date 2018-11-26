@@ -1,15 +1,23 @@
 public class HeapChecker {
-    boolean addEltTester(IHeap hOrig, IBinTree hRemoved){
+    boolean addEltTester(IHeap original, IBinTree addedHeap){
         //
 
         return false;
     }
 
-    boolean remMinEltTester(IHeap hOrig, IBinTree hRemoved){
+    boolean remMinEltTester(IHeap original, IBinTree hRemoved){
 
 
 
         return false;
     }
 
+
+
+    boolean isHeap(IBinTree tree){
+        if(tree.size() == 0){
+
+        }
+
+    }
 }
