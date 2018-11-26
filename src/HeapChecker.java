@@ -1,12 +1,12 @@
 public class HeapChecker {
-    boolean addEltTester(){
-
+    boolean addEltTester(IHeap hOrig, IBinTree hRemoved){
+        //
 
         return false;
     }
 
-    boolean remMinEltTester(){
-        
+    boolean remMinEltTester(IHeap hOrig, IBinTree hRemoved){
+
 
 
         return false;
