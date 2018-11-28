@@ -10,6 +10,16 @@ public class Examples {
             new TestHeap( 50 , null, null),
             new TestHeap( 100, null , null)));
 
+    TestHeap test2 = new TestHeap (6,
+            new TestHeap(7, null, null),
+            new TestHeap(10, null,
+                    new TestHeap(14, null, null)));
+
+    TestHeap test3 = new TestHeap (40,
+            new TestHeap(50, null,
+                    new TestHeap(80, null, null)),
+            new TestHeap(70, null, null));
+
     @Test
     public void testHeap1Adding(){
 
