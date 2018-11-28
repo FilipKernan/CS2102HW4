@@ -50,21 +50,27 @@ public class HeapChecker {
      */
 
     static public boolean heapsTheSame(LinkedList<Integer> first, LinkedList<Integer> second, boolean addOrRemove) {              // ADD IS TRUE REMOVE IS FALSE
-
+        LinkedList<Integer> removeFrom1 = new LinkedList<>();
+        LinkedList<Integer> removeFrom2 = new LinkedList<>();
         if (first.size() - second.size() == 1 || second.size() - first.size() == 1) {
             return false;
         } else {
             for (int i = 0; i < first.size(); i++) {
                 for (int j = 0; j < second.size(); j++) {
                     if (first.get(i) == second.get(j)) {
-                        first.remove(i);
-                        second.remove(j);
+                        removeFrom1.add(i);
+                        removeFrom2.add(j);
                     }
                 }
             }
-            //System.out.println(first);
-            //System.out.println(second);
-
+            for (int k = 0; k < removeFrom1.size(); k++) {
+                first.remove(removeFrom1.get(k));
+            }
+            for (int l = 0; l < removeFrom2.size(); l++) {
+                second.remove(removeFrom2.get(l));
+            }
+            System.out.println(first);
+            System.out.println(second);
             if (addOrRemove) {
                 return (first.size() == 0 && second.size() == 1);
             } else {
