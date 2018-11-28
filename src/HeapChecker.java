@@ -2,14 +2,14 @@ import java.util.LinkedList;
 
 public class HeapChecker {
     boolean addEltTester(IHeap original, IBinTree addedHeap){
-        if(addedHeap.isHeap()){
+        if(isHeap(addedHeap)){
             return heapsTheSame(makeEltsList(original, new LinkedList<>()), makeEltsList(addedHeap, new LinkedList<>()), true);
         }
         return false;
     }
 
     boolean remMinEltTester(IHeap original, IBinTree removedHeap){
-        if (removedHeap.isHeap()){
+        if (isHeap(removedHeap)){
             return heapsTheSame(makeEltsList(original, new LinkedList<>()), makeEltsList(removedHeap, new LinkedList<>()), false);
         }
         return false;
@@ -45,5 +45,20 @@ public class HeapChecker {
                 return (first.size() == 1 && second.size() == 0);
             }
         }
+    }
+
+
+    public boolean isHeap(IBinTree data){
+        if(data.getRight() == null && data.getLeft() == null){
+            return true;
+        }else if(data.getLeft() == null && data.getRight() != null){
+            return data.getRight().getData() > data.getData() && isHeap(data.getRight());
+        }else if(data.getRight() == null && data.getLeft() != null){
+            return data.getLeft().getData() > data.getData() && isHeap(data.getLeft());
+        }else{
+            return data.getLeft().getData() > data.getData() && data.getRight().getData() > data.getData() &&
+                    isHeap(data.getLeft())  && isHeap(data.getRight());
+        }
+
     }
 }
