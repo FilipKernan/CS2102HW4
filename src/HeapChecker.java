@@ -15,8 +15,13 @@ public class HeapChecker {
         System.out.println("Hello");
         if (isHeap(removedHeap)){
             System.out.println("Hello2");
+            LinkedList<Integer> originalList = makeEltsList(original, new LinkedList<>());
+            System.out.println("makeEltsList is working");
+            LinkedList<Integer> changedList = makeEltsList(removedHeap, new LinkedList<>());
+            System.out.println("Original:" + originalList);
+            System.out.println("changed:" + changedList);
 
-            return heapsTheSame(makeEltsList(original, new LinkedList<>()), makeEltsList(removedHeap, new LinkedList<>()), false);
+            return heapsTheSame(originalList, changedList, false);
         }
         return false;
     }
@@ -31,7 +36,7 @@ public class HeapChecker {
     static public LinkedList<Integer> makeEltsList(IBinTree original, LinkedList<Integer> soFar) {
         if(original.getRight() == null && original.getLeft() == null) {
             soFar.add(original.getData());
-            //System.out.println(soFar);      //DEBUGGING
+           // System.out.println(soFar);      //DEBUGGING
             return soFar;
         } else {
             soFar.add(original.getData());
@@ -69,8 +74,8 @@ public class HeapChecker {
             for (int l = 0; l < removeFrom2.size(); l++) {
                 second.remove(removeFrom2.get(l));
             }
-            System.out.println(first);
-            System.out.println(second);
+//            System.out.println(first);
+//            System.out.println(second);
             if (addOrRemove) {
                 return (first.size() == 0 && second.size() == 1);
             } else {

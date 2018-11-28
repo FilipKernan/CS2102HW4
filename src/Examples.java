@@ -38,11 +38,11 @@ public class Examples {
         IBinTree added = test3.addElt(8);
         assertFalse(HeapChecker.addEltTester(test3, added));
     }
-//    @Test
-//    public void testHeap1Remove(){
-//        IBinTree removed = test1.remMinElt();
-//        assertTrue(HeapChecker.addEltTester(test1, removed));
-//    }
+    @Test
+    public void testHeap1Remove(){
+        IBinTree removed = test1.remMinElt();
+        assertTrue(HeapChecker.addEltTester(test1, removed));
+    }
     @Test
     public void testHeap2Remove(){
         IBinTree removed = test2.remMinElt();
