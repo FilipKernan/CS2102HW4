@@ -2,14 +2,20 @@ import java.util.LinkedList;
 
 public class HeapChecker {
     static boolean addEltTester(IHeap original, IBinTree addedHeap){
+        System.out.println("Hello");
         if(isHeap(addedHeap)){
+            System.out.println("Hello2");
             return heapsTheSame(makeEltsList(original, new LinkedList<>()), makeEltsList(addedHeap, new LinkedList<>()), true);
         }
+
         return false;
     }
 
     boolean remMinEltTester(IHeap original, IBinTree removedHeap){
+        System.out.println("Hello");
         if (isHeap(removedHeap)){
+            System.out.println("Hello2");
+
             return heapsTheSame(makeEltsList(original, new LinkedList<>()), makeEltsList(removedHeap, new LinkedList<>()), false);
         }
         return false;
@@ -25,7 +31,7 @@ public class HeapChecker {
     static public LinkedList<Integer> makeEltsList(IBinTree original, LinkedList<Integer> soFar) {
         if(original.getRight() == null && original.getLeft() == null) {
             soFar.add(original.getData());
-            System.out.println(soFar);      //DEBUGGING
+            //System.out.println(soFar);      //DEBUGGING
             return soFar;
         } else {
             soFar.add(original.getData());
@@ -56,8 +62,8 @@ public class HeapChecker {
                     }
                 }
             }
-            System.out.println(first);
-            System.out.println(second);
+            //System.out.println(first);
+            //System.out.println(second);
 
             if (addOrRemove) {
                 return (first.size() == 0 && second.size() == 1);
@@ -73,11 +79,11 @@ public class HeapChecker {
      * @return whether or not the IBinTree is a heap
      */
     static public boolean isHeap(IBinTree data){
-        if(data.getRight() == null && data.getLeft() == null){
+        if(data.getRight().size() == 0 && data.getLeft().size() == 0){
             return true;
-        }else if(data.getLeft() == null && data.getRight() != null){
+        }else if(data.getLeft().size() == 0 && data.getRight().size() != 0){
             return data.getRight().getData() > data.getData() && isHeap(data.getRight());
-        }else if(data.getRight() == null && data.getLeft() != null){
+        }else if(data.getRight().size() == 0 && data.getLeft().size() != 0){
             return data.getLeft().getData() > data.getData() && isHeap(data.getLeft());
         }else{
             return data.getLeft().getData() > data.getData() && data.getRight().getData() > data.getData() &&
