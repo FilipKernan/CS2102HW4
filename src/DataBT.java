@@ -50,17 +50,7 @@ class DataBT implements IBinTree {
 
 
 
-    public LinkedList<Integer> makeEltsList(LinkedList<Integer> soFar) {
-        if(this.getRight() == null && this.getLeft() == null) {
-            soFar.add(this.getData());
-            return soFar;
-        } else {
-            soFar.add(this.getData());
-            soFar.addAll(this.getLeft().makeEltsList(soFar));
-            soFar.addAll(this.getRight().makeEltsList(soFar));
-            return soFar;
-        }
-    }
+
 
 
 }
