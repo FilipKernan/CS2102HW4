@@ -41,16 +41,16 @@ public class Examples {
     @Test
     public void testHeap1Remove(){
         IBinTree removed = test1.remMinElt();
-        assertTrue(HeapChecker.addEltTester(test1, removed));
+        assertTrue(HeapChecker.remMinEltTester(test1, removed));
     }
     @Test
     public void testHeap2Remove(){
         IBinTree removed = test2.remMinElt();
-        assertFalse(HeapChecker.addEltTester(test2, removed));
+        assertFalse(HeapChecker.remMinEltTester(test2, removed));
     }
     @Test
     public void testHeap3Remove(){
         IBinTree removed = test3.remMinElt();
-        assertTrue(HeapChecker.addEltTester(test3, removed));
+        assertTrue(HeapChecker.remMinEltTester(test3, removed));
     }
 }

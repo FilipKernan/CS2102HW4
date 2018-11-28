@@ -1,3 +1,5 @@
+import com.sun.xml.internal.bind.v2.runtime.reflect.Lister;
+
 import java.util.LinkedList;
 
 public class HeapChecker {
@@ -11,7 +13,7 @@ public class HeapChecker {
         return false;
     }
 
-    boolean remMinEltTester(IHeap original, IBinTree removedHeap){
+    static boolean remMinEltTester(IHeap original, IBinTree removedHeap){
         System.out.println("Hello");
         if (isHeap(removedHeap)){
             System.out.println("Hello2");
@@ -35,13 +37,15 @@ public class HeapChecker {
 
     static public LinkedList<Integer> makeEltsList(IBinTree original, LinkedList<Integer> soFar) {
         if(original.getRight() == null && original.getLeft() == null) {
-            soFar.add(original.getData());
+            if (original.getData() != 0) {
+                soFar.add(original.getData());
+            }
            // System.out.println(soFar);      //DEBUGGING
             return soFar;
         } else {
-            soFar.add(original.getData());
-            soFar.addAll(makeEltsList(original.getLeft(), soFar));
-            soFar.addAll(makeEltsList(original.getRight(), soFar));
+            if (original.getData() != 0 ) { soFar.add(original.getData()); }
+            makeEltsList(original.getLeft(), soFar);
+            makeEltsList(original.getRight(), soFar);
             return soFar;
         }
     }
@@ -55,32 +59,33 @@ public class HeapChecker {
      */
 
     static public boolean heapsTheSame(LinkedList<Integer> first, LinkedList<Integer> second, boolean addOrRemove) {              // ADD IS TRUE REMOVE IS FALSE
-        LinkedList<Integer> removeFrom1 = new LinkedList<>();
-        LinkedList<Integer> removeFrom2 = new LinkedList<>();
-        if (first.size() - second.size() != 1 && second.size() - first.size() != 1) {
-            return false;
-        } else {
-            for (int i = 0; i < first.size(); i++) {
-                for (int j = 0; j < second.size(); j++) {
-                    if (first.get(i) == second.get(j)) {
-                        removeFrom1.add(i);
-                        removeFrom2.add(j);
-                    }
+        if(!addOrRemove) {
+            int minimum = -1;
+            for (int q = 0; q < first.size(); q++) {
+                if (minimum == -1 || first.get(q) < minimum) {
+                    minimum = first.get(q);
                 }
             }
-            for (int k = 0; k < removeFrom1.size(); k++) {
-                first.remove(removeFrom1.get(k));
-            }
-            for (int l = 0; l < removeFrom2.size(); l++) {
-                second.remove(removeFrom2.get(l));
-            }
-//            System.out.println(first);
-//            System.out.println(second);
-            if (addOrRemove) {
-                return (first.size() == 0 && second.size() == 1);
+            first.remove(first.indexOf(minimum));
+        }
+
+        LinkedList<Integer> listOfBinaries = new LinkedList<>();
+        int total = 0;
+        for (int i = 0; i < first.size(); i++) {
+            if (second.contains(first.get(i))) {
+                listOfBinaries.add(0);
             } else {
-                return (first.size() == 1 && second.size() == 0);
+                listOfBinaries.add(1);
             }
+        }
+        for (int j = 0; j < listOfBinaries.size(); j++) {
+            total = total + listOfBinaries.get(j);
+        }
+        System.out.println(total);
+        if (total == 0) {
+            return true;
+        } else {
+            return false;
         }
     }
 
