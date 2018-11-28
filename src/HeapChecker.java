@@ -45,7 +45,7 @@ public class HeapChecker {
 
     static public boolean heapsTheSame(LinkedList<Integer> first, LinkedList<Integer> second, boolean addOrRemove) {              // ADD IS TRUE REMOVE IS FALSE
 
-        if (first.size() != second.size()) {
+        if (first.size() - second.size() == 1 || second.size() - first.size() == 1) {
             return false;
         } else {
             for (int i = 0; i < first.size(); i++) {
