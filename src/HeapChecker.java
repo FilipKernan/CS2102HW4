@@ -1,7 +1,7 @@
 import java.util.LinkedList;
 
 public class HeapChecker {
-    boolean addEltTester(IHeap original, IBinTree addedHeap){
+    static boolean addEltTester(IHeap original, IBinTree addedHeap){
         if(isHeap(addedHeap)){
             return heapsTheSame(original.makeEltsList(new LinkedList<>()), addedHeap.makeEltsList(new LinkedList<>()), true);
         }
@@ -14,7 +14,7 @@ public class HeapChecker {
         }
         return false;
     }
-    public boolean heapsTheSame(LinkedList<Integer> first, LinkedList<Integer> second, boolean addOrRemove) {              // ADD IS TRUE REMOVE IS FALSE
+    static public boolean heapsTheSame(LinkedList<Integer> first, LinkedList<Integer> second, boolean addOrRemove) {              // ADD IS TRUE REMOVE IS FALSE
         if (first.size() != second.size()) {
             return false;
         } else {
@@ -35,7 +35,7 @@ public class HeapChecker {
     }
 
 
-    public boolean isHeap(IBinTree data){
+    static public boolean isHeap(IBinTree data){
         if(data.getRight() == null && data.getLeft() == null){
             return true;
         }else if(data.getLeft() == null && data.getRight() != null){
