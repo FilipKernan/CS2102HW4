@@ -12,6 +12,5 @@ interface IBinTree {
     IBinTree getLeft();
     IBinTree getRight();
     boolean isHeap();
-    LinkedList<Integer> makeEltsList(LinkedList<Integer> soFar);
 
 }
