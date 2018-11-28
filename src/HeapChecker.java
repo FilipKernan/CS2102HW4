@@ -25,6 +25,7 @@ public class HeapChecker {
     static public LinkedList<Integer> makeEltsList(IBinTree original, LinkedList<Integer> soFar) {
         if(original.getRight() == null && original.getLeft() == null) {
             soFar.add(original.getData());
+            System.out.println(soFar);      //DEBUGGING
             return soFar;
         } else {
             soFar.add(original.getData());
@@ -55,6 +56,8 @@ public class HeapChecker {
                     }
                 }
             }
+            System.out.println(first);
+            System.out.println(second);
             if (addOrRemove) {
                 return (first.size() == 0 && second.size() == 1);
             } else {
