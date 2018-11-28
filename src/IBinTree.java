@@ -1,4 +1,5 @@
 import java.lang.Math;
+import java.util.LinkedList;
 
 interface IBinTree {
     // determines whether element is in the tree
@@ -11,4 +12,6 @@ interface IBinTree {
     IBinTree getLeft();
     IBinTree getRight();
     boolean isHeap();
+    LinkedList<Integer> makeEltsList(LinkedList<Integer> soFar);
+
 }
