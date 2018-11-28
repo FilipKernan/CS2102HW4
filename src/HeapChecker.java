@@ -15,6 +15,13 @@ public class HeapChecker {
         return false;
     }
 
+    /**
+     * makeEltsList is a method that consumes a BST and an empty list and returns a linkedlist of integers containing all of the nodes of the given BST
+     * @param original is the BST that is being turned into a list
+     * @param soFar is a blank linkedlist used as an iterator, since this method utilizes untrustworthy recursion
+     * @return is a linkedlist of integers containing every element of the original BST
+     */
+
     public LinkedList<Integer> makeEltsList(IBinTree original, LinkedList<Integer> soFar) {
         if(original.getRight() == null && original.getLeft() == null) {
             soFar.add(original.getData());
@@ -26,6 +33,14 @@ public class HeapChecker {
             return soFar;
         }
     }
+
+    /**
+     * heapsTheSame checks to see if the two given linkedlists contain the exact same numbers, except for one
+     * @param first the first linkedlist, which is created from the original BST
+     * @param second the second linkedlist, which is created from the BST that has had one part either added or removed
+     * @param addOrRemove a boolean that tells the method whether a node was added or removed, and therefore which list (first or second) should have the extra element
+     * @return if everything checks out, and the list are the same except for one extra element where it is supposed to be, it returns true
+     */
 
     public boolean heapsTheSame(LinkedList<Integer> first, LinkedList<Integer> second, boolean addOrRemove) {              // ADD IS TRUE REMOVE IS FALSE
         if (first.size() != second.size()) {
