@@ -10,4 +10,5 @@ interface IBinTree {
     int getData();
     IBinTree getLeft();
     IBinTree getRight();
+    boolean isHeap();
 }

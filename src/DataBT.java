@@ -45,4 +45,19 @@ class DataBT implements IBinTree {
     public int getData() {
         return data;
     }
+
+    public boolean isHeap(){
+        if(this.getRight() == null && this.getLeft() == null){
+            return true;
+        }else if(this.getLeft() == null && this.getRight() != null){
+            return this.getRight().getData() > this.getData() && this.getRight().isHeap();
+        }else if(this.getRight() == null && this.getLeft() != null){
+            return this.getLeft().getData() > this.getData() && this.getLeft().isHeap();
+        }else{
+            return this.getLeft().getData() > this.getData() && this.getRight().getData() > this.getData() &&
+                    this.getLeft().isHeap()  && this.getRight().isHeap();
+        }
+
+    }
+
 }
