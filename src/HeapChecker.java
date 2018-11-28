@@ -28,7 +28,7 @@ public class HeapChecker {
             soFar.add(original.getData());
             return soFar;
         } else {
-            soFar.add(original.getData()); 
+            soFar.add(original.getData());
             soFar.addAll(makeEltsList(original.getLeft(), soFar));
             soFar.addAll(makeEltsList(original.getRight(), soFar));
             return soFar;
