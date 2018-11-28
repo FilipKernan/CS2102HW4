@@ -20,9 +20,11 @@ public class Examples {
                     new TestHeap3(80, new MtHeap(), new MtHeap())),
             new TestHeap3(70, new MtHeap(), new MtHeap()));
 
+
     @Test
     public void testHeap1Adding(){
         IBinTree added = test1.addElt(8);
+
         assertFalse(HeapChecker.addEltTester(test1, added));
     }
 

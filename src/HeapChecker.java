@@ -55,6 +55,7 @@ public class HeapChecker {
                     }
                 }
             }
+
             if (addOrRemove) {
                 return (first.size() == 0 && second.size() == 1);
             } else {
@@ -63,7 +64,11 @@ public class HeapChecker {
         }
     }
 
-
+    /**
+     * Checks if a IBinTree is a Heap
+     * @param data The IBinTree that you are checking
+     * @return whether or not the IBinTree is a heap
+     */
     static public boolean isHeap(IBinTree data){
         if(data.getRight() == null && data.getLeft() == null){
             return true;

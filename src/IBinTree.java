@@ -11,11 +11,7 @@ interface IBinTree {
     int getData();
     IBinTree getLeft();
     IBinTree getRight();
-<<<<<<< HEAD
-    boolean isHeap();
-=======
 
-    LinkedList<Integer> makeEltsList(LinkedList<Integer> soFar);
->>>>>>> master
+
 
 }
